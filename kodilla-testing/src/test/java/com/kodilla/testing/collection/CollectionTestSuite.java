@@ -16,14 +16,15 @@ public class CollectionTestSuite {
    @Test
         public void testOddNumbersExterminatorEmptyList()
         {
-           OddNumbersExterminator numbers1= new OddNumbersExterminator();
+            OddNumbersExterminator numbers1= new OddNumbersExterminator();
         ArrayList<Integer> numbers123 = new ArrayList<Integer>();
         numbers1.exterminate(numbers123);
-        System.out.println("Empty list: "+numbers1.exterminate(numbers123));
+        Assert.assertEquals(numbers1.exterminate(numbers123), numbers123);
+        System.out.println(numbers1.exterminate(numbers123)+ ""+numbers123);
         }
     @Test
     public void testOddNumbersExterminatorNormalList()
-    {
+    {   //given
         OddNumbersExterminator numbers1= new OddNumbersExterminator();
         ArrayList<Integer> numbers123 = new ArrayList<Integer>();
         numbers123.add(1);
@@ -38,7 +39,10 @@ public class CollectionTestSuite {
         numbers123.add(10);
         numbers123.add(11);
         numbers123.add(12);
+        //when
         numbers1.exterminate(numbers123);
-        System.out.println("Even numbers listed: "+numbers1.exterminate(numbers123));
+        //then
+        Assert.assertNotEquals(numbers1.exterminate(numbers123), numbers123);
+        System.out.println(numbers1.exterminate(numbers123)+ ""+numbers123);
     }
 }

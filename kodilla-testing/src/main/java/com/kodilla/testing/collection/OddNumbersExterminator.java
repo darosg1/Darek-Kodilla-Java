@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class OddNumbersExterminator {
 
+
     public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
         ArrayList<Integer> numbersEven = new ArrayList<Integer>();
         for (int number : numbers) {
