@@ -1,48 +1,47 @@
 package com.kodilla.testing.shape;
-
 import org.junit.*;
 
-public class ShapeCollectorTestSuite {
+    public class ShapeCollectorTestSuite {
 
-    @BeforeClass
-    public static void beforeAllTests(){
-        System.out.println("This is the beginning of tests");
-    }
-    @AfterClass
-    public static void afterAllTests(){
-        System.out.println("All tests are finished");
-    }
-    @Test
-    public void addFigure(){
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-        boolean result = shapeCollector.addFigure(circle);
-        Assert.assertTrue(result);
-        System.out.println(result);
-    }
-   @Test
-    public void removeFigure(){
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-        boolean result = shapeCollector.removeFigure(circle);
-        Assert.assertTrue(result);
-       System.out.println(result);
-    }
-    @Test
-    public void getFigure(){
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
+        @BeforeClass
+        public static void beforeAllTests() {
+            System.out.println("This is the beginning of tests");
+        }
+        @AfterClass
+        public static void afterAllTests(){
+            System.out.println("All tests are finished");
+        }
+        @Test
+        public void testAddFigure(){
+            //given
+            Circle theCircle = new Circle();
+            ShapeCollector collector = new ShapeCollector(theCircle);
+            //when
+            collector.addFigure(theCircle);
+            //then
+            Assert.assertEquals(theCircle, collector.getFigure(0));
+        }
+        @Test
+        public void testRemoveFigure(){
+            //given
+            Circle theCircle = new Circle();
+            ShapeCollector collector = new ShapeCollector(theCircle);
+            collector.addFigure(theCircle);
+            //when
+            boolean result = collector.removeFigure(theCircle);
+            //then
+            Assert.assertTrue(result);
+        }
+        @Test
+        public void testGetFigure(){
+            //given
+            Square theSquare = new Square();
+            ShapeCollector collector = new ShapeCollector(theSquare);
+            collector.addFigure(theSquare);
+            //when
+            Shape retrievedShape = collector.getFigure(0);
+            //then
+            Assert.assertEquals(theSquare, retrievedShape);
+        }
 
-        shapeCollector.getFigure(1);
-        Assert.assertEquals(1, circle);
-    }
-    /*@Test
-    public void showFigure(){
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-
-        shapeCollector.showFigure();
-
-        Assert.assertEquals(circle, shapeCollector.showFigure());
-    }*/
 }

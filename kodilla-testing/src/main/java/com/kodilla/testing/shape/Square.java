@@ -4,9 +4,8 @@ public class Square implements Shape {
     public String getShapeName(){
         return "square";
     }
-    public Double getFiled(){
+    public Double getField() {
         double area = (10^2);
         return area;
-
     }
 }

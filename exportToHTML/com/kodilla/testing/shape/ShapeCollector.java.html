@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>ShapeCollector.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ShapeCollector.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.kodilla.testing.shape</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">ShapeCollector {</span>
+    <span class="s0">private </span><span class="s1">Shape shape</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">ArrayList&lt;Shape&gt; figures = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Shape&gt;()</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">ShapeCollector(Shape shape) {</span>
+        <span class="s0">this</span><span class="s1">.shape = shape</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">addFigure(Shape shape) {</span>
+        <span class="s1">Circle theFigure = </span><span class="s0">new </span><span class="s1">Circle ()</span><span class="s0">;</span>
+        <span class="s1">figures.add(theFigure)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.shape.getShapeName()</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.shape.getField()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Shape getShape() {</span>
+        <span class="s0">return </span><span class="s1">shape</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">removeFigure(Shape shape) {</span>
+        <span class="s0">return true;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Shape getFigure(</span><span class="s0">int </span><span class="s1">n) {</span>
+        <span class="s0">return null;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">showFigure() {</span>
+        <span class="s1">System.out.println(figures)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
