@@ -14,18 +14,18 @@ import org.junit.*;
         @Test
         public void testAddFigure(){
             //given
-            Circle theCircle = new Circle();
-            ShapeCollector collector = new ShapeCollector(theCircle);
+            Triangle theTriangle = new Triangle();
+            ShapeCollector collector = new ShapeCollector();
             //when
-            collector.addFigure(theCircle);
+            collector.addFigure(theTriangle);
             //then
-            Assert.assertEquals(theCircle, collector.getFigure(0));
+            Assert.assertEquals(theTriangle, collector.getFigure(0));
         }
         @Test
         public void testRemoveFigure(){
             //given
             Circle theCircle = new Circle();
-            ShapeCollector collector = new ShapeCollector(theCircle);
+            ShapeCollector collector = new ShapeCollector();
             collector.addFigure(theCircle);
             //when
             boolean result = collector.removeFigure(theCircle);
@@ -36,7 +36,7 @@ import org.junit.*;
         public void testGetFigure(){
             //given
             Square theSquare = new Square();
-            ShapeCollector collector = new ShapeCollector(theSquare);
+            ShapeCollector collector = new ShapeCollector();
             collector.addFigure(theSquare);
             //when
             Shape retrievedShape = collector.getFigure(0);

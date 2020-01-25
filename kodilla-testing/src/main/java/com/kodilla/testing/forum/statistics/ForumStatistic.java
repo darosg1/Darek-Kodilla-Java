@@ -9,7 +9,7 @@ public class ForumStatistic {
     public ForumStatistic(Statistics statistics) {
         this.statistics = statistics;
     }
-    public double calculateAdvStatistics(Statistics statistics) {
+    public void calculateAdvStatistics(Statistics statistics) {
         if (statistics.usersNames().size() != 0) {
             averagePostsCount = statistics.postsCount() / statistics.usersNames().size();
         } else {
