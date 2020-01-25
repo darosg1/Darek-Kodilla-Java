@@ -3,19 +3,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ShapeCollector {
-    private Shape shape;
     private ArrayList<Shape> figures =  new ArrayList<Shape>();
 
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-
-    }
     public void addFigure(Shape shape) {
         figures.add(shape);
-        this.shape.getShapeName();
-        this.shape.getField();
     }
-
     public boolean removeFigure(Shape shape) {
         boolean result = false;
         if(figures.contains(shape)){
