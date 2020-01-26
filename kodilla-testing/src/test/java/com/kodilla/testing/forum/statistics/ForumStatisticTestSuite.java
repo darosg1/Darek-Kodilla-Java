@@ -12,17 +12,36 @@ public class ForumStatisticTestSuite {
     @Test
     public void testForumStatisticsWithMock1(){
         //given
+        //Tworzony jest mock interfejsu Statistics.
+        // obiekt sztucznej klasy, ktora symuluje rzeczywistą klasę implementująca interfejs Statistics
         Statistics statisticsMock=mock(Statistics.class);
         List<String> actualUsersNames = new ArrayList<String>();
-        actualUsersNames.add("Darek");
-        actualUsersNames.add("Marek");
-        actualUsersNames.add("Jarek");
-        when(statisticsMock.getStatisticsUsersNames()).thenReturn(actualUsersNames);
-
+            for(int i=0; i<100; i++) {
+                actualUsersNames.add("Darek");
+            }
+        when(statisticsMock.usersNames()).thenReturn(actualUsersNames);
         ForumStatistic forumStatistics = new ForumStatistic (statisticsMock);
         //when
-        forumStatistics.calculateAdvStatistics().size();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
         //then
-        Assert.assertEquals(3, forumStatistics.calculateAdvStatistics().size());
+        Assert.assertEquals(100, forumStatistics);
+        System.out.println(actualUsersNames);
     }
+
+
+    /*@Test
+    public void testForumStatisticsWithMock2(){
+        //given
+        //Tworzony jest mock interfejsu Statistics.
+        // obiekt sztucznej klasy, ktora symuluje rzeczywistą klasę implementująca interfejs Statistics
+        Statistics statisticsMock=mock(Statistics.class);
+
+        when(statisticsMock.commentsCount()).thenReturn(actualCommentsCount());
+        ForumStatistic forumStatistics = new ForumStatistic (statisticsMock);
+        //when
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        //then
+        Assert.assertEquals(100,actualCommentsCount());
+
+    }*/
 }
