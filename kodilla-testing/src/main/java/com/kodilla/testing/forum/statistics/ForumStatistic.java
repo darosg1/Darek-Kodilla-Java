@@ -27,9 +27,9 @@ public class ForumStatistic {
         }
     }
     public void showStatistics(){
-        System.out.println("Average posts per forum user"+ averagePostsCount);
-        System.out.println("Average comments per forum user"+averageCommentsCount);
-        System.out.println("Average comments per post"+ averageCommentsPerPosts);
+        System.out.println("Average posts per forum user "+ averagePostsCount);
+        System.out.println("Average comments per forum user "+averageCommentsCount);
+        System.out.println("Average comments per post "+ averageCommentsPerPosts);
     }
 }
 
