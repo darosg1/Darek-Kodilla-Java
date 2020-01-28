@@ -9,6 +9,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ForumStatisticTestSuite {
+    private static int testCounter = 0;
     @BeforeClass
     public static void beforeClass(){
         System.out.println("Test suite: begin");
@@ -16,6 +17,8 @@ public class ForumStatisticTestSuite {
     }
     @Before
     public void before(){
+        testCounter++;
+        System.out.println("Preparing to execute test #" + testCounter);
         System.out.println("Test case: begin");
     }
     @After
@@ -42,12 +45,12 @@ public class ForumStatisticTestSuite {
         forumStatistic.calculateAdvStatistics(statisticsMock);
         forumStatistic.showStatistics();
         //then
-        Assert.assertEquals(100, actualUsersNames.size());
+        Assert.assertEquals(50,forumStatistic.getAverageCommentsCount());
         System.out.println("Number of users "+actualUsersNames.size());
     }
 
     @Test
-    public void testForumStatisticsWithMock0Users() {
+    public void testForumStatisticsWithMock0UsersMorePosts() {
         //given
         Statistics statisticsMock = mock(Statistics.class);
         ForumStatistic forumStatistic = new ForumStatistic(statisticsMock);
@@ -59,11 +62,11 @@ public class ForumStatisticTestSuite {
         forumStatistic.calculateAdvStatistics(statisticsMock);
         forumStatistic.showStatistics();
         //then
-        Assert.assertEquals(0, actualUsersNames.size());
+        Assert.assertEquals(0,forumStatistic.getAveragePostsCount());
         System.out.println("Number of users " + actualUsersNames.size());
     }
     @Test
-    public void testForumStatisticsWithMock2Users() {
+    public void testForumStatisticsWithMock2UsersMoreComments() {
         //given
         Statistics statisticsMock = mock(Statistics.class);
         ForumStatistic forumStatistic = new ForumStatistic(statisticsMock);
@@ -71,13 +74,30 @@ public class ForumStatisticTestSuite {
             actualUsersNames.add("Darek");
             actualUsersNames.add("Marek");
         when(statisticsMock.usersNames()).thenReturn(actualUsersNames);
-        when(statisticsMock.postsCount()).thenReturn(0);
+        when(statisticsMock.postsCount()).thenReturn(2);
         when(statisticsMock.commentsCount()).thenReturn(10);
         //when
         forumStatistic.calculateAdvStatistics(statisticsMock);
         forumStatistic.showStatistics();
         //then
-        Assert.assertEquals(2,actualUsersNames.size());
+        Assert.assertEquals(5, forumStatistic.getAverageCommentsPerPosts());
+        System.out.println("Number of users " + actualUsersNames.size());
+    }
+    @Test
+    public void testForumStatisticsWithMock1UserNoPost() {
+        //given
+        Statistics statisticsMock = mock(Statistics.class);
+        ForumStatistic forumStatistic = new ForumStatistic(statisticsMock);
+        List<String> actualUsersNames = new ArrayList<String>();
+        actualUsersNames.add("Darek");
+        when(statisticsMock.usersNames()).thenReturn(actualUsersNames);
+        when(statisticsMock.postsCount()).thenReturn(0);
+        when(statisticsMock.commentsCount()).thenReturn(0);
+        //when
+        forumStatistic.calculateAdvStatistics(statisticsMock);
+        forumStatistic.showStatistics();
+        //then
+        Assert.assertEquals(0, forumStatistic.getAverageCommentsCount());
         System.out.println("Number of users " + actualUsersNames.size());
     }
 }

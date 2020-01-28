@@ -9,13 +9,26 @@ public class ForumStatistic {
     public ForumStatistic(Statistics statistics) {
         this.statistics = statistics;
     }
+
+    public int getAveragePostsCount() {
+        return averagePostsCount;
+    }
+
+    public int getAverageCommentsCount() {
+        return averageCommentsCount;
+    }
+
+    public int getAverageCommentsPerPosts() {
+        return averageCommentsPerPosts;
+    }
+
     public void calculateAdvStatistics(Statistics statistics) {
         if (statistics.usersNames().size() != 0) {
             averagePostsCount = statistics.postsCount() / statistics.usersNames().size();
         } else {
             averagePostsCount = 0;
         }
-        if (statistics.usersNames().size() != 0) {
+        if (statistics.usersNames().size() != 0 && statistics.postsCount()!=0) {
             averageCommentsCount = statistics.commentsCount() / statistics.usersNames().size();
         } else {
             averageCommentsCount = 0;
