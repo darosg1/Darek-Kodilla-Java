@@ -1,7 +1,7 @@
 package com.kodilla.stream.world;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public final class Continent {
     private final String continentName;
@@ -11,7 +11,7 @@ public final class Continent {
         this.continentName = continentName;
     }
     public String getContinentName() {
-            return continentName;
+        return continentName;
     }
     public void addCountry(Country country) {
         countries.add(country);
