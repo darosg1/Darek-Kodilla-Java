@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class FileReader {
-    public void readFile() {
+    public void readFile () throws FileReaderException {
         //obiekt nazwany classLoader typu ClassLoader
         //obiekt typu ClassLoader pobierany jest za pomocą metody getClass().getClassLoader()
         //getClass() - metoda zwracająca klasę w której jest wywołana czyli FileReader
@@ -27,10 +27,9 @@ public class FileReader {
             //catch blok kodu, który uruchomi się od razu kiedy Java napotka wyjątek na przykład IOExecption
             //wewnatrz nawiasów musimy zdefiniować wywołania catch musimy zdefiniować jakiego wyjatku może spodziewać się Java
             // i co zrobić jak go napotka
-            System.out.println("Oh no, somthing get wrong "+e);
-        }
-        finally{
-            System.out.println("I am gonna be always here!!");
+            throw new FileReaderException();
+        }finally{
+            System.out.println("I am gonna be here... always");
         }
     }
 }
