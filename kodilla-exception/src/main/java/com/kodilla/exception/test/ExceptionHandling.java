@@ -8,7 +8,7 @@ public class ExceptionHandling {
         }catch (Exception e){
             System.out.println("Niestety błąd: " + e);
         }finally{
-            System.out.println("System sprawdza obsługę wyjątku.git add");
+            System.out.println("System sprawdza obsługę wyjątku.");
         }
     }
 }
